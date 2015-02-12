@@ -7,6 +7,7 @@ data <- read.csv('./hid.csv')`
 
 
 Creation of a logical vector indicating how each row in the dataset respond or not to the conditions
+
 `agricultureLogical <- data$ACR == 3 & data$AGS == 6`
 
 `# EX of result (not accurate) => head(agricultureLogical) : [1] FALSE  NA FALSE TRUE FALSE FALSE  NA FALSE TRUE FALSE`
