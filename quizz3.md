@@ -15,6 +15,7 @@ Creation of a logical vector indicating how each row in the dataset respond or n
 
 
 Display the indices where the elements of agricultureLogical == TRUE
+
 `which(agricultureLogical)`
 
         `#Result on  the dataset   [1]  125  238  262  470 ...`
