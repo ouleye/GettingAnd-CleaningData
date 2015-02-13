@@ -1,21 +1,21 @@
+FOR REVIEWER INFORMATION,
+
+
 # GET THE DATA
 url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 zipfile <- "UCIHARDataset.zip"
 
 if(!file.exists("./Project")) {dir.create("Project")}
-
 download.file(url, file.path("Project", zipfile))
-
 setwd("./Project")
 
 unzip(zipfile)
-
 setwd("./UCI HAR Dataset") #Set the final working Directory
                            # use list.files(getwd(), recursive = TRUE), to check ALL the files in WD.
       
 
 #WORKING THE DATA
-#Merges the training and the test sets to create one data set.
+# 1- Merges the training and the test sets to create one data set.
 #Train data
 SubjectTrain <- read.table(file.path(getwd(), "train", "subject_train.txt"),header=FALSE)
 YTrain <- read.table(file.path(getwd(), "train", "Y_train.txt"),header=FALSE)
@@ -29,7 +29,7 @@ SubjectTest<- read.table(file.path(getwd(), "test", "subject_test.txt"),header=F
 YTest <- read.table(file.path(getwd(), "test", "Y_test.txt"),header=FALSE)
 XTest <- read.table(file.path(getwd(), "test", "X_test.txt"),sep="",header=FALSE)
         #Merge Test Data
-        TestData <- cbind(subject=SubjectTest,activity=YTest) #Add column with subjectID and ActivityID
+        TestData <- cbind(SubjectTest,YTest) #Add column with subjectID and ActivityID
         TestData <- cbind(TestData,XTest) #Add subject and activity to the recorded info
 
 #ACTUAL MERGE OF ALL THE DATA
