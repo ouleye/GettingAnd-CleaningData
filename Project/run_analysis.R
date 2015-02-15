@@ -52,7 +52,7 @@ setnames(activities,c('ActivityID','Activity'))
 setkey(mean_std_data,ActivityID)
 setkey(activities,ActivityID)
 Data1  <- merge(mean_std_data,activities)
-setkey(Data1,SubjectID,Activity)
+setkey(Data1,SubjectID,ActivityID,Activity)
 
 
 #From the data set in step 4, creates a second, independent tidy data set with 
