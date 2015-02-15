@@ -59,3 +59,10 @@ setkey(Data1,SubjectID,Activity)
 #the average of each variable for each activity and each subject.
 tidy_data  <- Data1[,lapply(.SD,mean),by=key(Data1)]
 
+#correct the variable names
+names <- names(tidy_data)
+names <- gsub('-mean', 'Mean', names) # Replace `-mean' by `Mean'
+names <- gsub('-std', 'Std', names) # Replace `-std' by 'Std'
+names <- gsub('[()-]', '', names) # Remove the parenthesis and dashes
+names <- gsub('BodyBody', 'Body', names) # Replace `BodyBody' by `Body'
+setnames(tidy_data, names)
