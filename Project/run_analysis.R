@@ -1,21 +1,24 @@
 library("data.table")
 
 # GET THE DATA
-url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-zipfile <- "UCIHARDataset.zip"
+download_unzip_data  <- function() {
+        url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+        zipfile <- "UCIHARDataset.zip"
 
-if(!file.exists("./Project")) {dir.create("Project")}
-download.file(url, destfile = file.path("Project", zipfile),method="curl")
-setwd("./Project")
+        if(!file.exists("./Project")) {dir.create("Project")}
+        download.file(url, destfile = file.path("Project", zipfile),method="curl")
 
-unzip(zipfile)
-setwd("./UCI HAR Dataset") #Set the final working Directory
-# use list.files(getwd(), recursive = TRUE), to check ALL the files in WD.
-
+        setwd("./Project")
+        unzip(zipfile)
+                                }
 
 #WORKING THE DATA
 # 1- Merges the training and the test sets to create one data set.
 #Train data
+generate_tidy_data <- function() {
+if(!file.exists("./UCI HAR Dataset")) { print("manque repertoire UCI HAR Dataset") 
+break}
+setwd("./UCI HAR Dataset")
 SubjectTrain <- fread(file.path(getwd(), "train", "subject_train.txt"))
 YTrain <- fread(file.path(getwd(), "train", "Y_train.txt"))
 XTrain <- data.table(read.table(file.path(getwd(), "train", "X_train.txt"),sep="",header=FALSE))
@@ -54,15 +57,19 @@ setkey(activities,ActivityID)
 Data1  <- merge(mean_std_data,activities)
 setkey(Data1,SubjectID,ActivityID,Activity)
 
-
-#From the data set in step 4, creates a second, independent tidy data set with 
-#the average of each variable for each activity and each subject.
+#From the data set in step 4, creates a second, independent tidy data 
+#set with the average of each variable for each activity and each subject.
 tidy_data  <- Data1[,lapply(.SD,mean),by=key(Data1)]
 
-#correct the variable names
+#correct the variable names to have them human friendly
 names <- names(tidy_data)
-names <- gsub('-mean', 'Mean', names) # Replace `-mean' by `Mean'
-names <- gsub('-std', 'Std', names) # Replace `-std' by 'Std'
-names <- gsub('[()-]', '', names) # Remove the parenthesis and dashes
+names <- gsub('-mean', '_Mean', names) # Replace `-mean' by `Mean'
+names <- gsub('-std', '_Std', names) # Replace `-std' by 'Std'
+names <- gsub('[()-]', '_', names) # Remove the parenthesis and dashes
 names <- gsub('BodyBody', 'Body', names) # Replace `BodyBody' by `Body'
 setnames(tidy_data, names)
+
+write.csv(tidy_data, file = '../tidydata.csv',row.names = FALSE, quote = FALSE)
+}
+
+
