@@ -21,6 +21,6 @@ agricultureLogical <- data$ACR == 3 & data$AGS == 6
 Display the indices where the elements of agricultureLogical == TRUE
 
 ```
-which(agricultureLogical)`
+which(agricultureLogical)
 ```
-#Result on  the dataset   [1]  125  238  262  470 ...
+Result on  the dataset   [1]  125  238  262  470 ...
