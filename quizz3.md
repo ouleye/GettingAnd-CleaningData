@@ -1,10 +1,10 @@
 Question 1
 ==========
 
-`r
+```r
 download.file('https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv',destfile = './hid.csv')
 data <- read.csv('./hid.csv')
-r`
+```
 
 
 
