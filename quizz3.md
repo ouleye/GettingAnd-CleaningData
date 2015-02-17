@@ -24,3 +24,13 @@ Display the indices where the elements of agricultureLogical == TRUE
 which(agricultureLogical)
 ```
 Result on  the dataset   [1]  125  238  262  470 ...
+
+
+Question 2
+==========
+
+```r
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fjeff.jpg", destfile = "./image.jpg",mode = "wb")
+vf <-readJPEG("./x.jpg",native = TRUE)
+quantile(vf,probs=seq(0,1,0.1))
+```
