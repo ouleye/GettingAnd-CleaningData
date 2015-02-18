@@ -34,3 +34,20 @@ download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fjeff.jpg", destfi
 vf <-readJPEG("./image.jpg",native = TRUE)
 quantile(vf,probs=seq(0,1,0.1))
 ```
+
+
+Question 2
+==========
+
+```r
+library("data.table")
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv ", destfile = "./FGDP.csv")
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FEDSTATS_Country.csv ", destfile = "./FEDSTATS.csv")
+
+fgdp <-data.table(read.csv("./FGDP.csv"))
+setkey(fgdp,X)
+fedstats <-data.table(read.csv("./FEDSTATS.csv"))
+setkey(fedstats,CountryCode)
+
+DATA <- merge(fedstats, fgdp, by.x=c("CountryCode") , by.y=c("x"))
+```
