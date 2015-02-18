@@ -80,7 +80,7 @@ Data3$ActivityID  <- NULL
 Data3$Activity  <- as.factor(Data3$Activity)
         
 
-setkey(Data3,SubjectID,ActivityID,Activity,Domain,Component,Instrument,Jerk,Magnitude,Axis,Measure)
+setkey(Data3,SubjectID,Activity,Domain,Component,Instrument,Jerk,Magnitude,Axis,Measure)
 tidy_data  <- Data3[,lapply(.SD,mean),by=key(Data3)]
-#write.csv(tidy_data, file = '../tidydata.txt',row.names = FALSE, quote = FALSE)
+write.csv(tidy_data, file = '../tidydata.txt',row.names = FALSE, quote = FALSE)
 #}
