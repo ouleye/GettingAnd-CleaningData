@@ -75,6 +75,11 @@ Data3$Axis  <- ifelse(grepl('*Y$*',Data3$variable),"Y",Data3$Axis)
 Data3$Axis  <- as.factor(ifelse(grepl('*Z$*',Data3$variable),"Z",Data3$Axis))
 Data3$variable  <- NULL
 
+Data3$SubjectID  <- as.factor(Data3$SubjectID)
+Data3$ActivityID  <- NULL
+Data3$Activity  <- as.factor(Data3$Activity)
+        
+
 setkey(Data3,SubjectID,ActivityID,Activity,Domain,Component,Instrument,Jerk,Magnitude,Axis,Measure)
 tidy_data  <- Data3[,lapply(.SD,mean),by=key(Data3)]
 #write.csv(tidy_data, file = '../tidydata.txt',row.names = FALSE, quote = FALSE)
