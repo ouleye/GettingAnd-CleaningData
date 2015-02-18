@@ -1,21 +1,22 @@
 library("data.table")
+library("reshape2")
 
 # GET THE DATA
-download_unzip_data  <- function() {
-        url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-        zipfile <- "UCIHARDataset.zip"
+#download_unzip_data  <- function() {
+      #  url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+       # zipfile <- "UCIHARDataset.zip"
 
-        if(!file.exists("./Project")) {dir.create("Project")}
-        download.file(url, destfile = file.path("Project", zipfile),method="curl")
+        #if(!file.exists("./Project")) {dir.create("Project")}
+        #download.file(url, destfile = file.path("Project", zipfile),method="curl")
 
-        setwd("./Project")
-        unzip(zipfile)
-                                }
-
+        #setwd("./Project")
+        #unzip(zipfile)
+ #                               }
+#
 #WORKING THE DATA
 # 1- Merges the training and the test sets to create one data set.
 #Train data
-generate_tidy_data <- function() {
+#generate_tidy_data <- function() {
 if(!file.exists("./UCI HAR Dataset")) { print("manque repertoire UCI HAR Dataset") 
 break}
 setwd("./UCI HAR Dataset")
@@ -45,7 +46,7 @@ column_names <-c("SubjectID","ActivityID",as.character(labels$V2))
 setnames(AllData,column_names)        
 
 #Extracts only the measurements on the mean and standard deviation for each measurement. 
-col_select  <- column_names[grepl("SubjectID|ActivityID|mean\\(\\)|std\\(\\)",column_names)]
+col_select  <- column_names[grepl("SubjectID|ActivityID|[Mm]ean\\(\\)|std\\(\\)",column_names)]
 mean_std_data  <- subset(AllData,select = col_select)
 
 
@@ -57,19 +58,24 @@ setkey(activities,ActivityID)
 Data1  <- merge(mean_std_data,activities)
 setkey(Data1,SubjectID,ActivityID,Activity)
 
-#From the data set in step 4, creates a second, independent tidy data 
-#set with the average of each variable for each activity and each subject.
-tidy_data  <- Data1[,lapply(.SD,mean),by=key(Data1)]
 
-#correct the variable names to have them human friendly
-names <- names(tidy_data)
-names <- gsub('-mean', '_Mean', names) # Replace `-mean' by `Mean'
-names <- gsub('-std', '_Std', names) # Replace `-std' by 'Std'
-names <- gsub('[()-]', '_', names) # Remove the parenthesis and dashes
-names <- gsub('BodyBody', 'Body', names) # Replace `BodyBody' by `Body'
-setnames(tidy_data, names)
+Data3 <- melt(Data1,id =c("SubjectID","ActivityID","Activity"))
 
-write.csv(tidy_data, file = '../tidydata.csv',row.names = FALSE, quote = FALSE)
-}
+Data3$Domain  <- as.factor(ifelse(substr(Data3$variable,1,1) == 't',"Time","Frequency"))
+Data3$Component  <- ifelse(grepl('*[Bb]ody*',Data3$variable),"Body"," ")
+Data3$Component  <- as.factor(ifelse(grepl('*[Gg]ravity*',Data3$variable),"Gravity",Data3$Component))
+Data3$Instrument  <- ifelse(grepl('*[Aa]cc*',Data3$variable),"Accelerator"," ")
+Data3$Instrument  <- as.factor(ifelse(grepl('*[Gg]yro*',Data3$variable),"Gyroscope",Data3$Instrument))
+Data3$Jerk  <- as.logical(ifelse(grepl('*[Jj]erk*',Data3$variable),"TRUE","FALSE"))
+Data3$Measure  <- ifelse(grepl('*[Mm]ean*',Data3$variable),"Mean"," ")
+Data3$Measure  <- as.factor(ifelse(grepl('*[Ss]td*',Data3$variable),"Std",Data3$Measure))
+Data3$Magnitude  <- as.logical(ifelse(grepl('*[Ma]g*',Data3$variable),"TRUE","FALSE"))
+Data3$Axis  <- ifelse(grepl('*X$*',Data3$variable),"X",NA)
+Data3$Axis  <- ifelse(grepl('*Y$*',Data3$variable),"Y",Data3$Axis)
+Data3$Axis  <- as.factor(ifelse(grepl('*Z$*',Data3$variable),"Z",Data3$Axis))
+Data3$variable  <- NULL
 
-
+setkey(Data3,SubjectID,ActivityID,Activity,Domain,Component,Instrument,Jerk,Magnitude,Axis,Measure)
+tidy_data  <- Data3[,lapply(.SD,mean),by=key(Data3)]
+#write.csv(tidy_data, file = '../tidydata.txt',row.names = FALSE, quote = FALSE)
+#}
