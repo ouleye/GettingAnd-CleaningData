@@ -61,5 +61,5 @@ Classes ‘data.table’ and 'data.frame':	11880 obs. of  10 variables:
 Save to file
 ------------
 
-Save data table objects to a tab-delimited text file called `tidy_data.txt`. Available on Coursera Course project
+Save data table objects to a tab-delimited text file called `tidy_data.txt`. Available on Coursera Course project Page
 
