@@ -32,9 +32,22 @@ What is inside the run_analysis.r script
 There is two function in this script
 
 1. **download_unzip_data** 
-       * Dowload the 
+       * Create a *Project* Directory to store the dataset
+       * Download the UCI HAR Dataset from the web
+       * Unzip the file containing the dataset
+
 2. **generate_tidy_data**
-       * 
+       * Load the needed Packages : *data.table* and *reshape2*
+       * Check if the *UCI HAR Dataset* exists, if not the process is stopped
+       * All the train data are collected and merged
+       * All the Test data are collected and merged
+       * The Train and Test data are merged in a data frame 
+       * The colunmn names of the data frame are set thanks to the features info provided
+       * The mean and standard deviation value are subsetted
+       * Activity names are added
+       * The dataset is melted in order to obtain the info by subjectId and Activity name
+       * The Feature info is broken in order to obtain on column per variable (see thevariable breaking process in the `codebook.md`)
+       *  Creation of the Tidy Dataset by calculation the average for each observation.
 
 
 
