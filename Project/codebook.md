@@ -59,7 +59,7 @@ Classes ‘data.table’ and 'data.frame':	11880 obs. of  10 variables:
 
 Variable breaking process
 ------------------------------
-The aim of this part is to explain how the feature information has been broken into 7 (seven) columns in order to have one observation by column.
+The aim of this part is to explain how the feature informations have been broken into 7 (seven) columns in order to have one observation by row.
 
 
  Feature              | Domain    | Component    | Instrument    | Jerk      | Magnitude    | Axis      | Measure    
