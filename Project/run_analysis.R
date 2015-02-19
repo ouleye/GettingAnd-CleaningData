@@ -1,5 +1,3 @@
-
-
 # GET THE DATA
 download_unzip_data  <- function() {
         url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
