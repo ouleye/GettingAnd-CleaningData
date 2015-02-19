@@ -29,7 +29,7 @@ Introduction
 What is inside the run_analysis.r script
 -------------------------------
 
-There is two function in this script
+There are two functions in this script
 
 1. **download_unzip_data** 
        * Create a *Project* Directory to store the dataset
@@ -57,8 +57,8 @@ How to use the run_analysis.r script
 * Open the R script `run_analysis.r` using in RStudio
 * Source the script
 
-* If the data have not been downloaded and unzipped. launch the command `download_unzip_data()` in RStudio.
-* If the data have been unloaded and zipped, identify the directory where the UCI HAR Dataset directory is, set it as the working directory with `setwd()` 
+* If the data *have not been downloaded* and unzipped. launch the command `download_unzip_data()` in RStudio.
+* If the data *have been unloaded and unzipped*, identify the directory where the UCI HAR Dataset directory is, set it as the working directory with `setwd()` 
 
 * launch the command `generate_tidy_data()` in RStudio
 
