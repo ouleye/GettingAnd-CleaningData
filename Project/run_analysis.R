@@ -22,20 +22,20 @@ generate_tidy_data <- function() {
 	setwd("./UCI HAR Dataset")
 	
 #Train data
-	SubjectTrain <- fread(file.path(getwd(), "train", "subject_train.txt"))
-	YTrain <- fread(file.path(getwd(), "train", "Y_train.txt"))
-	XTrain <- data.table(read.table(file.path(getwd(), "train", "X_train.txt"),sep="",header=FALSE))
+	SubjectTrain <- fread(file.path(getwd(), "train", "subject_train.txt"))#SubjectID
+	YTrain <- fread(file.path(getwd(), "train", "Y_train.txt"))#ActivityID
+	XTrain <- data.table(read.table(file.path(getwd(), "train", "X_train.txt"),sep="",header=FALSE))#Measures
 		#Merge Train Data
-			TrainData <- cbind(subjectID=SubjectTrain,activityID=YTrain) #Add column with subjectID and ActivityID
-			TrainData <- cbind(TrainData,XTrain) #Add subject and activity to the recorded info
+			TrainData <- cbind(subjectID=SubjectTrain,activityID=YTrain) 
+			TrainData <- cbind(TrainData,XTrain) 
 
 #Test data
-	SubjectTest<- fread(file.path(getwd(), "test", "subject_test.txt"))
-	YTest <- fread(file.path(getwd(), "test", "Y_test.txt"))
-	XTest <- data.table(read.table(file.path(getwd(), "test", "X_test.txt"),sep="",header=FALSE))
+	SubjectTest<- fread(file.path(getwd(), "test", "subject_test.txt")) #SubjectID
+	YTest <- fread(file.path(getwd(), "test", "Y_test.txt")) #ActivityID
+	XTest <- data.table(read.table(file.path(getwd(), "test", "X_test.txt"),sep="",header=FALSE)) #Measures
 		#Merge Test Data
-			TestData <- cbind(subjectID=SubjectTest,activityID=YTest) #Add column with subjectID and ActivityID
-			TestData <- cbind(TestData,XTest) #Add subject and activity to the recorded info
+			TestData <- cbind(subjectID=SubjectTest,activityID=YTest) 
+			TestData <- cbind(TestData,XTest) 
 
 #Merge Train and Test Data
 	Data <- rbind(TrainData,TestData)
