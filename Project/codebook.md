@@ -11,10 +11,10 @@ Activity         | Activity name
 Domain           | Domain signal (Time or Frequency)
 component        | Acceleration signal Component (Body or Gravity)
 Instrument       | Measuring instrument (Accelerometer or Gyroscope)
-Measure          | type of measure (Mean Value or Standard Deviation)
 Jerk             | Jerk signal (True or False)
 Magnitude        | Magnitude of the signals calculated using the Euclidean norm (True or False)
 Axis             | 3-axial signals in the X, Y and Z directions (X, Y, or Z)
+Measure          | type of measure (Mean Value or Standard Deviation)
 Value            | Average for each observation
 
 Variable Value
@@ -23,13 +23,19 @@ SubjectID
  * Range from 1 to 30
  
 Activity
-* WALKING
-* WALKING_UPSTAIRS
-* WALKING_DOWNSTAIRS
-* SITTING
-* STANDING
-* LAYING
-
+* WALKING,WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
+Variable name    | Data Type  | Values
+-----------------|------------|------------ 
+SubjectID        | Factor     | Rang from 1 to 30
+Activity         | Factor     | WALKING,WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
+Domain           | Factor     | Time , Frequency
+component        | Factor     | Body or Gravity
+Instrument       | Factor     | Accelerometer or Gyroscope
+Jerk             | Logical    | True or False
+Magnitude        | Logical    | Identifier of the 30 subjects
+Axis             | Factor     | Identifier of the 30 subjects
+Measure          | Factor     | Identifier of the 30 subjects
+Value            | Number     | Identifier of the 30 subjects
 
 
 Dataset structure
