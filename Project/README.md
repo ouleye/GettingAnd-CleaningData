@@ -38,14 +38,14 @@ There is two function in this script
 
 
 
-How to use the Run_Analysis.r script
+How to use the run_analysis.r script
 -------------------------------
 
-* Open the R script `Run_Analysis.r` using in RStudio
+* Open the R script `run_analysis.r` using in RStudio
 * Source the script
 
-        1. If the data have not been downloaded and unzipped. launch the command `download_unzip_data()` in RStudio.
-       2. If the data have been unloaded and zipped, identify the directory where the UCI HAR Dataset directory is, set it as the working directory with `setwd()` 
+* If the data have not been downloaded and unzipped. launch the command `download_unzip_data()` in RStudio.
+* If the data have been unloaded and zipped, identify the directory where the UCI HAR Dataset directory is, set it as the working directory with `setwd()` 
 
 * launch the command `generate_tidy_data()` in RStudio
 
