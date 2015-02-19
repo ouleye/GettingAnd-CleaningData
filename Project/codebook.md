@@ -8,13 +8,13 @@ Variable name    | Description
 -----------------|------------ 
 SubjectID        | Identifier of the 30 subjects 
 Activity         | Activity name
-Domain           | Domain signal (Time or Frequency)
-component        | Acceleration signal Component (Body or Gravity)
-Instrument       | Measuring instrument (Accelerometer or Gyroscope)
-Jerk             | Jerk signal (True or False)
-Magnitude        | Magnitude of the signals calculated using the Euclidean norm (True or False)
-Axis             | 3-axial signals in the X, Y and Z directions (X, Y, or Z)
-Measure          | type of measure (Mean Value or Standard Deviation)
+Domain           | Domain signal
+component        | Acceleration signal Component
+Instrument       | Measuring instrument
+Jerk             | Jerk signal
+Magnitude        | Magnitude of the signals calculated using the Euclidean norm
+Axis             | 3-axial signals in the X, Y and Z directions
+Measure          | type of measure
 Value            | Average for each observation
 
 Variable Value
