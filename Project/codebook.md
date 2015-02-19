@@ -6,8 +6,8 @@ Variable list and descriptions
 
 Variable name    | Description
 -----------------|------------ 
-subject          | Identifier of the subject. Range from 1 to 30.
-activity         | Activity name
+SubjectID        | Identifier of the 30 subjects 
+Activity         | Activity name
 Domain           | Domain signal (Time or Frequency)
 component        | Acceleration signal Component (Body or Gravity)
 Instrument       | Measuring instrument (Accelerometer or Gyroscope)
@@ -17,6 +17,18 @@ Magnitude        | Magnitude of the signals calculated using the Euclidean norm 
 Axis             | 3-axial signals in the X, Y and Z directions (X, Y, or Z)
 Value            | Average for each observation
 
+Variable Value
+------------------------------
+SubjectID 
+ * Range from 1 to 30
+ 
+Activity
+* WALKING
+* WALKING_UPSTAIRS
+* WALKING_DOWNSTAIRS
+* SITTING
+* STANDING
+* LAYING
 
 
 
