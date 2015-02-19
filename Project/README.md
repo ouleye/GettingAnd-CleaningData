@@ -26,28 +26,28 @@ Introduction
 > 
 > Good luck!
 
-What is inside the Run_Analysis.r script
+What is inside the run_analysis.r script
 -------------------------------
 
-1. Open the R script `Run_Analysis.r` using in RStudio
-2. Source the script
-3. 
- * If the data have not been downloaded and unzipped. launch the command `Run_Analysis.r` in RStudio.
- * If the data hae been unloaded and zipped
-        * identify the directory where the UCI HAR Dataset directory is, set it as the working directory with `setwd()` 
-        * launch the command `generate_tidy_data()` in RStudio
+There is two function in this script
+
+1. **download_unzip_data** 
+       * Dowload the 
+2. **generate_tidy_data**
+       * 
+
 
 
 How to use the Run_Analysis.r script
 -------------------------------
 
-1. Open the R script `Run_Analysis.r` using in RStudio
-2. Source the script
-3. 
- * If the data have not been downloaded and unzipped. launch the command `Run_Analysis.r` in RStudio.
- * If the data hae been unloaded and zipped
-        * identify the directory where the UCI HAR Dataset directory is, set it as the working directory with `setwd()` 
-        * launch the command `generate_tidy_data()` in RStudio
+* Open the R script `Run_Analysis.r` using in RStudio
+* Source the script
+
+        1. If the data have not been downloaded and unzipped. launch the command `download_unzip_data()` in RStudio.
+       2. If the data have been unloaded and zipped, identify the directory where the UCI HAR Dataset directory is, set it as the working directory with `setwd()` 
+
+* launch the command `generate_tidy_data()` in RStudio
 
 
 
