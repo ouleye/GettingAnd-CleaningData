@@ -52,9 +52,10 @@ generate_tidy_data <- function() {
 #Uses descriptive activity names to name the activities in the data set
 	activities  <- fread(file.path(getwd(),"activity_labels.txt"))
 	setnames(activities,c('ActivityID','Activity'))
-	setkey(mean_std_data,ActivityID)
+	setkey(Data,ActivityID)
 	setkey(activities,ActivityID)
 	Data <- merge(Data,activities)
+#Set subjectId and Activity as factor - Remove the ActivityId column
 	Data$SubjectID  <- as.factor(Data$SubjectID)
 	Data$ActivityID  <- NULL
 	Data$Activity  <- as.factor(Data$Activity)
@@ -91,5 +92,5 @@ generate_tidy_data <- function() {
 	tidy_data  <- Data[,lapply(.SD,mean),by=key(Data)]
 	
 # Extration of the tidy_data in tidy_data.txt file.
-write.csv(tidy_data, file = '../tidydata.txt',row.names = FALSE, quote = FALSE)
+write.csv(tidy_data, file = '../tidy_data.txt',row.names = FALSE, quote = FALSE)
 }
