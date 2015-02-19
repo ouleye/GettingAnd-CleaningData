@@ -64,9 +64,9 @@ The aim of this part is to explain how the feature information has been broken i
 
  Feature              | Domain    | Component    | Instrument    | Jerk      | Magnitude    | Axis      | Measure    
 ----------------------|-----------|--------------|---------------|-----------|--------------|-----------|-----------
-tBodyAccMag-mean()    | Time      | Body         | Accelero.     | FALSE     | TRUE         | NA        | Mean. 
+tBodyAccMag-mean()-Y  | Time      | Body         | Accelero.     | FALSE     | TRUE         | Y         | Mean. 
 tGravityGyro-mean()   | Time      | Gravity      | Gyroscope     | FALSE     | FALSE        | NA        | Mean. 
-fBodyAccJerk-std()    | Frequen.  | Body         | Accelero.     | TRUE      | FALSE        | NA        | Standard Deviation 
+fBodyAccJerk-std()-Z  | Frequen.  | Body         | Accelero.     | TRUE      | FALSE        | Z         | Standard Deviation 
 
 
 
