@@ -19,11 +19,7 @@ Value            | Average for each observation
 
 Variable Value
 ------------------------------
-SubjectID 
- * Range from 1 to 30
- 
-Activity
-* WALKING,WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
+
 Variable name    | Values
 -----------------|------------ 
 SubjectID        | Rang from 1 to 30
