@@ -24,18 +24,18 @@ SubjectID
  
 Activity
 * WALKING,WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
-Variable name    | Data Type  | Values
------------------|------------|------------ 
-SubjectID        | Factor     | Rang from 1 to 30
-Activity         | Factor     | WALKING,WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
-Domain           | Factor     | Time , Frequency
-component        | Factor     | Body or Gravity
-Instrument       | Factor     | Accelerometer or Gyroscope
-Jerk             | Logical    | True or False
-Magnitude        | Logical    | Identifier of the 30 subjects
-Axis             | Factor     | Identifier of the 30 subjects
-Measure          | Factor     | Identifier of the 30 subjects
-Value            | Number     | Identifier of the 30 subjects
+Variable name    | Values
+-----------------|------------ 
+SubjectID        | Rang from 1 to 30
+Activity         | WALKING,WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
+Domain           | Time , Frequency
+component        | Body , Gravity
+Instrument       | Accelerometer , Gyroscope
+Jerk             | TRUE, FALSE
+Magnitude        | TRUE, FALSE
+Axis             | X, Y, Z, NA
+Measure          | Mean Value, Standard Deviation
+Value            | type = number
 
 
 Dataset structure
