@@ -25,7 +25,7 @@ Variable name    | Values
 SubjectID        | Rang from 1 to 30
 Activity         | WALKING,WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
 Domain           | Time , Frequency
-component        | Body , Gravity
+Component        | Body , Gravity
 Instrument       | Accelerometer , Gyroscope
 Jerk             | TRUE, FALSE
 Magnitude        | TRUE, FALSE
@@ -56,6 +56,18 @@ Classes ‘data.table’ and 'data.frame':	11880 obs. of  10 variables:
  - attr(*, "sorted")= chr  "SubjectID" "Activity" "Domain" "Component" ...
  - attr(*, ".internal.selfref")=<externalptr>
 ```
+
+Variable breaking process
+------------------------------
+The aim of this part is to explain how the feature information has been broken into 7 (seven) columns in order to have one observation by column
+ 
+ Ex:
+ Feature              | Domain    | Component    | Instrument    | Jerk      | Magnitude    | Axis      | Measure    
+----------------------|-----------|--------------|---------------|-----------|--------------|-----------|-----------
+tBodyAccMag-mean()    | Time      | Body         | Accelero.     | FALSE     | TRUE         | NA        | Mean. 
+tGravityGyro-mean()   | Time      | Body         | Gyroscope     | FALSE     | FALSE        | NA        | Mean. 
+fBodyAccJerk-std()    | Frequen.  | Body         | Accelero.     | TRUE      | FALSE        | NA        | Standard Deviation 
+
 
 
 Save to file
