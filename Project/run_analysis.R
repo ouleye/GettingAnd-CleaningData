@@ -12,9 +12,10 @@ download_unzip_data  <- function() {
 
 #PREPARE TIDY DATA
 generate_tidy_data <- function() {
+
 #Load the required package
-library("data.table")
-library("reshape2")
+	library("data.table")
+	library("reshape2")
 
 	if(!file.exists("./UCI HAR Dataset")) { print("'UCI HAR Dataset' directory is missing"); break}
 
