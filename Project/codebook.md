@@ -86,5 +86,5 @@ SubjectID Activity    Domain Component    Instrument  Jerk Magnitude Axis       
 Save to file
 ------------
 
-Save data table objects to a tab-delimited text file called `tidy_data.txt`. Available on Coursera Course project Page
+Save data table objects to a tab-delimited text file called `tidy_UCIHARDataset.txt`. Available on Coursera Course project Page
 
