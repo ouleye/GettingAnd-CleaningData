@@ -45,7 +45,7 @@ There are two functions in this script
        * Activity names are added
        * The dataset is melted in order to obtain the info by subjectId and Activity name
        * The Feature info is broken in order to obtain on column per variable (see thevariable breaking process in the `codebook.md`)
-       *  Creation of the Tidy Dataset by calculation the average for each observation.
+       *  Creation of the `tidy_UCIHAR Dataset` by calculation the average for each observation.
 
 
 
@@ -63,4 +63,4 @@ How to use the run_analysis.r script
 
 Details on the Output
 -------------------------------
-informations on the Tidy dataset generated can be found in the `codebook.md` file.
+informations on the tidy_UCIHARDataset file generated can be found in the `codebook.md` file.
