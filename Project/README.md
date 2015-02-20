@@ -1,6 +1,6 @@
-Getting and Cleaning Data
+Getting and Cleaning Data Project
 =====================================
-
+by Ouleyematou GUEYE
 
 
 Introduction
@@ -23,8 +23,6 @@ Introduction
 > 3. Uses descriptive activity names to name the activities in the data set.
 > 4. Appropriately labels the data set with descriptive activity names.
 > 5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
-> 
-> Good luck!
 
 What is inside the run_analysis.r script
 -------------------------------
