@@ -1,5 +1,8 @@
 Codebook
 ========
+This codebook details the structure of the tidy dataset, generated during this project.
+  * The script that performs the transformation can be found in the `run_analysis.R` file.
+  * Explanation on how the script work can be found in the `README.md` file.
 
 Variable list and descriptions
 ------------------------------
