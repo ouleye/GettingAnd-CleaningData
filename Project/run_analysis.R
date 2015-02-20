@@ -26,16 +26,14 @@ generate_tidy_data <- function() {
 	YTrain <- fread(file.path(getwd(), "train", "Y_train.txt"))#ActivityID
 	XTrain <- data.table(read.table(file.path(getwd(), "train", "X_train.txt"),sep="",header=FALSE))#Measures
 		#Merge Train Data
-			TrainData <- cbind(subjectID=SubjectTrain,activityID=YTrain) 
-			TrainData <- cbind(TrainData,XTrain) 
+			TrainData <- cbind(cbind(subjectID=SubjectTrain,activityID=YTrain),XTrain)
 
 #Test data
 	SubjectTest<- fread(file.path(getwd(), "test", "subject_test.txt")) #SubjectID
 	YTest <- fread(file.path(getwd(), "test", "Y_test.txt")) #ActivityID
 	XTest <- data.table(read.table(file.path(getwd(), "test", "X_test.txt"),sep="",header=FALSE)) #Measures
 		#Merge Test Data
-			TestData <- cbind(subjectID=SubjectTest,activityID=YTest) 
-			TestData <- cbind(TestData,XTest) 
+			TestData <- cbind(cbind(subjectID=SubjectTest,activityID=YTest),XTest) 
 
 #Merge Train and Test Data
 	Data <- rbind(TrainData,TestData)
@@ -47,9 +45,8 @@ generate_tidy_data <- function() {
 
 
 #Extracts only the measurements on the mean and standard deviation for each measurement.
-	col_select <- column_names[grepl("SubjectID|ActivityID|[Mm]ean\\(\\)|std\\(\\)",column_names)]
+	col_select <- column_names[grepl("SubjectID|ActivityID|[Mm]ean\\(\\)|[Ss]td\\(\\)",column_names)]
 	Data1  <- subset(Data,select = col_select)
-
 
 #Uses descriptive activity names to name the activities in the data set
 	activities  <- fread(file.path(getwd(),"activity_labels.txt"))
@@ -57,7 +54,8 @@ generate_tidy_data <- function() {
 	setkey(Data1,ActivityID)
 	setkey(activities,ActivityID)
 	Data2 <- merge(Data1,activities)
-#Set subjectId and Activity as factor - Remove the ActivityId column
+	
+#Set SubjectId and Activity as factor - Remove the ActivityId column
 	Data2$SubjectID  <- as.factor(Data2$SubjectID)
 	Data2$Activity  <- as.factor(Data2$Activity)
 	Data2$ActivityID  <- as.factor(Data2$ActivityID)
@@ -67,7 +65,8 @@ generate_tidy_data <- function() {
 	
 #Creation of a column per variable
 	#Variable Domain (either Time or Frequency)
-        melted_Data$Domain  <- as.factor(ifelse(substr(melted_Data$variable,1,1) == 't',"Time","Frequency"))
+        melted_Data$Domain  <- ifelse(substr(melted_Data$variable,1,1) == 't',"Time",NA)
+        melted_Data$Domain  <- as.factor(ifelse(substr(melted_Data$variable,1,1) == 'f',"Frequency",NA))
 	#Variable Component (either Body or Gravity)
         melted_Data$Component  <- ifelse(grepl('*[Bb]ody*',melted_Data$variable),"Body"," ")
         melted_Data$Component  <- as.factor(ifelse(grepl('*[Gg]ravity*',melted_Data$variable),"Gravity",melted_Data$Component))
@@ -90,10 +89,10 @@ generate_tidy_data <- function() {
         melted_Data$ActivityID  <- NULL
 
 	
-# Aggregation of the DATA DataSet by calculating the mean by key
+# Aggregation of the DATA DataSet by calculating the Average by key
 	setkey(melted_Data,SubjectID,Activity,Domain,Component,Instrument,Jerk,Magnitude,Axis,Measure)
 	tidy_data  <- melted_Data[,lapply(.SD,mean),by=key(melted_Data)]
 	
-# Extration of the tidy_data in tidy_data.txt file.
-write.csv(tidy_data, file = '../tidy_data.txt',row.names = FALSE, quote = FALSE)
+# Extration of the tidy_data in tidy_UCIHARDataset.txt file.
+write.csv(tidy_data, file = '../tidy_UCIHARDataset.txt',row.names = FALSE, quote = FALSE)
 }
