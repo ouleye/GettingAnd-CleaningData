@@ -61,5 +61,6 @@ How to use the run_analysis.r script
 * launch the command `generate_tidy_data()` in RStudio
 
 
-
-
+Details on the Output
+-------------------------------
+informations on the Tidy dataset generated can be found in the `codebook.md` file.
