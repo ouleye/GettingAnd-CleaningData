@@ -55,7 +55,7 @@ generate_tidy_data <- function() {
 	setkey(activities,ActivityID)
 	Data2 <- merge(Data1,activities)
 	
-#Set SubjectId and Activity as factor - Remove the ActivityId column
+#Set SubjectId and Activity as factor
 	Data2$SubjectID  <- as.factor(Data2$SubjectID)
 	Data2$Activity  <- as.factor(Data2$Activity)
 	Data2$ActivityID  <- as.factor(Data2$ActivityID)
