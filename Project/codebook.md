@@ -75,12 +75,12 @@ Output example
 ------------
 ```r
 SubjectID Activity    Domain Component    Instrument  Jerk Magnitude Axis            Measure      value
-            1   LAYING Frequency      Body Accelerometer FALSE     FALSE    X         Mean Value -0.9390991
-            1   LAYING Frequency      Body Accelerometer FALSE     FALSE    X Standard Deviation -0.9244374
-            1   LAYING Frequency      Body Accelerometer FALSE     FALSE    Y         Mean Value -0.8670652
-            1   LAYING Frequency      Body Accelerometer FALSE     FALSE    Y Standard Deviation -0.8336256
-            1   LAYING Frequency      Body Accelerometer FALSE     FALSE    Z         Mean Value -0.8826669
-            1   LAYING Frequency      Body Accelerometer FALSE     FALSE    Z Standard Deviation -0.8128916
+         1   LAYING Frequency      Body Accelerometer FALSE     FALSE    X         Mean Value -0.9390991
+         1   LAYING Frequency      Body Accelerometer FALSE     FALSE    X Standard Deviation -0.9244374
+         1   LAYING Frequency      Body Accelerometer FALSE     FALSE    Y         Mean Value -0.8670652
+         1   LAYING Frequency      Body Accelerometer FALSE     FALSE    Y Standard Deviation -0.8336256
+         1   LAYING Frequency      Body Accelerometer FALSE     FALSE    Z         Mean Value -0.8826669
+         1   LAYING Frequency      Body Accelerometer FALSE     FALSE    Z Standard Deviation -0.8128916
 ```
 
 Save to file
