@@ -66,7 +66,7 @@ generate_tidy_data <- function() {
 #Creation of a column per variable
 	#Variable Domain (either Time or Frequency)
         melted_Data$Domain  <- ifelse(substr(melted_Data$variable,1,1) == 't',"Time",NA)
-        melted_Data$Domain  <- as.factor(ifelse(substr(melted_Data$variable,1,1) == 'f',"Frequency",NA))
+        melted_Data$Domain  <- as.factor(ifelse(substr(melted_Data$variable,1,1) == 'f',"Frequency",melted_Data$Domain))
 	#Variable Component (either Body or Gravity)
         melted_Data$Component  <- ifelse(grepl('*[Bb]ody*',melted_Data$variable),"Body"," ")
         melted_Data$Component  <- as.factor(ifelse(grepl('*[Gg]ravity*',melted_Data$variable),"Gravity",melted_Data$Component))
