@@ -8,6 +8,8 @@ Question 1
 >https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FPUMSDataDict06.pdf
 
 >Apply strsplit() to split all the names of the data frame on the characters "wgtp". What is the value of the 123 element of the resulting list?
+
+
 ```
 download.file('https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv', destfile = './datasshid.csv')
 datasshid <-read.csv('./datasshid.csv')
@@ -31,9 +33,13 @@ a[[123]]
 Question 2
 ----------
 >Load the Gross Domestic Product data for the 190 ranked countries in this data set:
+
 >https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv
+
 >Remove the commas from the GDP numbers in millions of dollars and average them. What is the average?
+
 >Original data sources: http://data.worldbank.org/data-catalog/GDP-ranking-table 
+
 
 ```
 download.file('https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv', destfile = './fgdp.csv')
@@ -41,17 +47,19 @@ download.file('https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv', 
 ```
 
 After taking a look at the file,I can see that the 4 rows of csv can be skipped and only the 190 next rows are relevant as per the question informations :
-  >Load the Gross Domestic Product data for the **190** ranked countries in this data set: 
+   >Load the Gross Domestic Product data for the **190** ranked countries in this data set: 
 
 I also prevent the read.csv function to create variable as factors.
 ```
 fgdp <- read.csv('./fgdp.csv', skip=4, nrows=190, stringsAsFactors = FALSE)
 ```
 
+
 I had colnames to the fgdp dataframe, in order to work more easily
 ```
 colnames(fgdp) <-  c("CountryCode", "rankingGDP",'RandomInfo', "Long.Name", "gdp")
 ```
+
 
 ```
 str(fgdp)
@@ -68,11 +76,13 @@ str(fgdp)
  $ NA         : logi  NA NA NA NA NA NA ...
 ```
 
+
 The structure shows that the gdp variable is a string
 I will then, remove the commas in gdp variable and transform it as numeric
 ```
 fgdp$gdp <- as.numeric(gsub(',','',fgdp$gdp))
 ```
+
 
 Calculate the mean
 ```
