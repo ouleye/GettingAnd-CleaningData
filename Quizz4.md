@@ -49,7 +49,7 @@ download.file('https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv', 
 After taking a look at the file,I can see that the 4 rows of csv can be skipped and only the 190 next rows are relevant as per the question informations :
    >Load the Gross Domestic Product data for the **190** ranked countries in this data set: 
 
-I also prevent the read.csv function to create variable as factors.
+I also prevent the read.csv function from creating variable as factors.
 ```
 fgdp <- read.csv('./fgdp.csv', skip=4, nrows=190, stringsAsFactors = FALSE)
 ```
