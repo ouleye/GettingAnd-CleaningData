@@ -89,3 +89,31 @@ Calculate the mean
 mean(fgdp$gdp, na.rm = TRUE)
 [1] 377652.4
 ```
+
+
+
+
+Question 3
+-----------
+>In the data set from Question 2 what is a regular expression that would allow you to count the number of countries whose name begins with "United"? Assume that the variable with the country names in it is named countryNames. How many countries begin with United?
+
+`grep("^United",countryNames), 3`
+
+
+Question 4
+-----------
+
+>Load the Gross Domestic Product data for the 190 ranked countries in this data set:
+
+>https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv
+
+>Load the educational data from this data set:
+
+>https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FEDSTATS_Country.csv
+
+>Match the data based on the country shortcode. Of the countries for which the end of the fiscal year is available, how many end in June?
+
+>Original data sources:
+>http://data.worldbank.org/data-catalog/GDP-ranking-table
+>http://data.worldbank.org/data-catalog/ed-stats
+
