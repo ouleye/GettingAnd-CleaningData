@@ -117,3 +117,25 @@ Question 4
 >http://data.worldbank.org/data-catalog/GDP-ranking-table
 >http://data.worldbank.org/data-catalog/ed-stats
 
+we will use the fgdp data frame  from question 2
+```
+download.file('https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FEDSTATS_Country.csv', destfile = './fedstats.csv')
+fedstats <- read.csv('./fedstats.csv',stringsAsFactors = FALSE)
+```
+
+Transformation into data.table format and merge into one dataset.
+```
+library("data.table")
+fgdp <- data.table(fgdp)
+fedstats <- data.table(fedstats)
+
+setkey(fedstats,CountryCode)
+setkey(fgdp,CountryCode)
+
+data <- merge(fedstats,fgdp)
+```
+
+T
+```
+
+```
