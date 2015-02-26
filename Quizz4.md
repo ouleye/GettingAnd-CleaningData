@@ -133,9 +133,18 @@ setkey(fedstats,CountryCode)
 setkey(fgdp,CountryCode)
 
 data <- merge(fedstats,fgdp)
+View(data)
 ```
 
-T
+By looking at the data, I can see that info on the fiscal year end is indicated in the "Special.Notes" variable
+I will subset this variable CountryCode and Special.Notes to create a new df and work on it with dplyr package using 
+chaining.
 ```
-
+library("dplyr")
+datadplyr <- tbl_df(data)
+ v <- datadplyr %>% select (CountryCode,Special.Notes)
+                %>% filter (grepl("Fiscal year end: June",Special.Notes) == "TRUE")
+                
+ nrow(v)
+[1] 13
 ```
