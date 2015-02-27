@@ -176,10 +176,10 @@ Q5 <- mutate(Q5, days= weekdays(sampleTimes), year= year(sampleTimes))
 addmargins(table(Q5$days,Q5$year))
           2007 2008 2009 2010 2011 2012 2013 2014 2015  Sum
   jeudi      51   50   51   51   51   51   50   50    8  413
-  lundi      48   48   48   47   46   *47*   48   48    6  386
+  lundi      48   48   48   47   46  *47*  48   48    6  386
   mardi      50   52   52   52   52   50   52   52    8  420
   mercredi   51   53   52   52   52   51   51   52    8  422
   vendredi   51   50   49   50   51   51   51   50    8  411
-  Sum       251  253  252  252  252  *250*  252  252   38 2052
+  Sum       251  253  252  252  252 *250* 252  252   38 2052
 
 ```
